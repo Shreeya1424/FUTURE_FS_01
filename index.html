@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio of Shreeya showcasing projects, skills, and contact info." />
+  <title>Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
+      color: #fff;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 1.5rem 2rem 1rem 2rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+    nav a.active, nav a:hover {
+      color: #e75480;
+    }
+    section {
+      padding: 2.5rem 1rem 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .intro-card {
+      background: #fff;
+      color: #222;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 2.5rem 2rem;
+      max-width: 1100px;
+      margin: 2.5rem auto 0 auto;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .intro {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .intro-text {
+      max-width: 60%;
+    }
+    .intro-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .intro-role {
+      color: #e75480;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .intro-btns button {
+      margin-right: 1rem;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .intro-btns .hire {
+      background: #e75480;
+      color: #fff;
+    }
+    .intro-btns .projects {
+      background: #222;
+      color: #fff;
+    }
+    .intro-img {
+      width: 200px;
+      height: 200px;
+      background: #ffffff;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .intro-img img {
+      width: 180px;
+      height: 180px;
+      border-radius: 0;
+      object-fit: cover;
+    }
+    .about-box {
+      background: #fff;
+      color: #222;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      margin-top: 1rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .skill-card {
+      background: #fff;
+      color: #222;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 1.2rem 2rem;
+      text-align: center;
+      min-width: 110px;
+      transition: transform 0.3s;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+    .skill-card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+    }
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: #fff;
+      color: #222;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 1.2rem 2rem;
+      transition: transform 0.3s;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .contact-form {
+      background: rgba(255,255,255,0.35);
+      color: #222;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto 0 auto;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .contact-form input, .contact-form textarea {
+      background: #fff;
+      color: #222;
+      border: 1px solid #ccc;
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.7rem 0;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .contact-form input::placeholder, .contact-form textarea::placeholder {
+      color: #888;
+    }
+    .contact-form button {
+      background: #e75480;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    .socials {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .socials a {
+      margin: 0 0.7rem;
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .socials a:hover {
+      color: #e75480;
+    }
+    footer {
+      text-align: center;
+      padding: 0.2rem 0;
+      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 100;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="#" class="active" onclick="showSection('home')">Home</a>
+      <a href="#" onclick="showSection('about')">About</a>
+      <a href="#" onclick="showSection('skills')">Skills</a>
+      <a href="#" onclick="showSection('projects')">Projects</a>
+      <a href="#" onclick="showSection('contact')">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="active">
+    <div class="intro-card">
+      <div class="intro">
+        <div class="intro-text">
+          <div class="intro-title">Hi, I'm Shreeya</div>
+          <div class="intro-role">Web Designer</div>
+          <p>Welcome to my personal portfolio! Explore my creative and technical journey through projects, skills, and design.</p>
+          <div class="intro-btns">
+            <button class="hire" onclick="showSection('contact')">Hire Me</button>
+            <button class="projects" onclick="showSection('projects')">Latest Projects</button>
+          </div>
+        </div>
+        <div class="intro-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTANtekZvUlCuM1D8g5bVpBWFHmC86AyPQC7g&s" alt="Shreeya Avatar" />
+        </div>
+      </div>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/shreeya-dhol-9194612b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Shreeya1424" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:23010101066@darshan.ac.in?subject=Portfolio%20Inquiry&title=Contact%20Request" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <footer>
+      <p>&copy; 2025 Shreeya. All rights reserved.</p>
+    </footer>
+  </section>
+
+  <section id="about" style="display:none;">
+    <h2>About Me</h2>
+    <div class="about-box">
+      <p>My name is <b>Shreeya Dhol</b>, and I am from Gondal. I completed my HSC at Gangotri Science and Commerce School in Gondal, and I am currently pursuing a B.Tech in Computer Science and Engineering at Darshan University - Rajkot, I will complete my graduation in 2027. My strengths are that I am a self-motivated individual with strong communication skills; I learn quickly and am a good listener. My short-term goal is to secure a position at a reputable company where I can build my career. </p>
+      <P><b>Experience :</b>I don't have any work experience because I am currently studying in third year at Darshan University - Rajkot.</P>
+    </div>
+  </section>
+
+  <section id="skills" style="display:none;">
+    <h2>My Skills</h2>
+    <div class="skills-list">
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" /><div>C</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" /><div>HTML</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" /><div>CSS</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /><div>JavaScript</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /><div>Python</div></div>
+      <div class="skill-card"><img src="data:image/png;base64,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" alt="DSA" /><div>DSA</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="java" /><div>Java</div></div>
+      <div class="skill-card"><img src="data:image/png;base64,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" alt="DBMS" /><div>DBMS</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" /><div>Flutter</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" /><div>GitHub</div></div>
+    </div>
+  </section>
+
+  <section id="projects" style="display:none;">
+    <h2>Projects</h2>
+    <div class="projects-list">
+      <div class="project-card">
+        <h3>Matromonial app</h3>
+        <p>A matrimonial app in Flutter offers seamless matchmaking, user profiles,  favourite user and personalized search filters. It ensures smooth performance, cross-platform compatibility.</p>
+      </div>
+      <div class="project-card">
+        <h3>Task Manager</h3>
+        <p>A task management app to add, update, remove, and mark tasks complete. Built using HTML, CSS, JavaScript.</p>
+      </div>
+      <div class="project-card">
+        <h3>Personal Portfolio</h3>
+        <p>This live portfolio showcases my skills, education, and projects. Designed and coded from scratch.</p>
+      </div>
+      <div class="project-card">
+        <h3>Weather Dashboard</h3>
+        <p>The live weather dashboard displays real-time weather updates for a searched city, including temperature, humidity, wind speed, and forecast.It provides an intuitive interface with dynamic visuals for quick insights.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="display:none;">
+    <h2>Contact Me</h2>
+    <form class="contact-form" onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="text" id="contact" placeholder="Your Contact Number" required />
+      <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="status"></p>
+    </form>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(id).style.display = 'block';
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      if(id !== 'home') {
+        document.querySelector(`nav a[onclick*="${id}"]`).classList.add('active');
+      } else {
+        document.querySelector('nav a').classList.add('active');
+      }
+    }
+
+    function sendMessage(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const contact = document.getElementById('contact').value;
+      const message = document.getElementById('message').value;
+
+      fetch('http://localhost:3000/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, contact, message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('status').innerText = 'Thank you, your data is received!';
+      })
+      .catch(() => {
+        document.getElementById('status').innerText = `Network error. Please try again.`;
+      });
+    }
+  </script>
+</body>
+</html> 
